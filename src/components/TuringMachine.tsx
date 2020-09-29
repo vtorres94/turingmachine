@@ -116,21 +116,32 @@ const TuringMachine: React.FunctionComponent<IPops> = props => {
       }
     }
   }
+  const reiniciar = () => {
+    setState({
+      ...state,
+      cadena: '',
+      arreglo: [],
+      estado: 0,
+      apuntador: 1,
+      error: false,
+      success: false
+    })
+  }
   return (
     <Segment style={{ textAlign: 'center' }}>
       {state.success ?
         <Message positive>
-          <Message.Header>You are eligible for a reward</Message.Header>
+          <Message.Header>Felicidades haz decifrado el mensaje</Message.Header>
             <p>
-              Go to your <b>special offers</b> page to see now.
+              Haz derrotado a los NAZIS
             </p>
           </Message>
         : null}
       {state.error ?
         <Message negative>
-          <Message.Header>You are eligible for a reward</Message.Header>
+          <Message.Header>CARACTER INCORRECTO</Message.Header>
             <p>
-              Go to your <b>special offers</b> page to see now.
+              Los NAZIS te llevan la delantera!
             </p>
           </Message>
         : null}
@@ -153,7 +164,8 @@ const TuringMachine: React.FunctionComponent<IPops> = props => {
         value={state.cadena.toUpperCase()}
         onChange={
           event => setState({
-            ...state, cadena: event.currentTarget.value.toUpperCase()
+            ...state,
+            cadena : state.cadena.length < 9 ? event.currentTarget.value.toUpperCase() : state.cadena
           })
         }
       />
@@ -166,6 +178,7 @@ const TuringMachine: React.FunctionComponent<IPops> = props => {
               style={{ weight: '10px'}}
               placeholder='#'
               value={state.arreglo ? state.arreglo[0] : '#'}
+              color='green'
             />
           </Grid.Column>
           <Grid.Column largeScreen={1} stretched>
@@ -320,22 +333,22 @@ const TuringMachine: React.FunctionComponent<IPops> = props => {
         
       </Grid>
       <br />
-      {(!state.error || !state.success) ?
-      <Button
-        color='teal'
-        size='big'
-        onClick={() => nextStep()}
-      >
-          Paso a paso
-      </Button>
-      :
-      <Button
-        color='teal'
-        size='big'
-        onClick={() => nextStep()}
-      >
-          Reiniciar
-      </Button>
+      {(state.error || state.success) ?
+        <Button
+          color='teal'
+          size='big'
+          onClick={() => reiniciar()}
+        >
+            Reiniciar
+        </Button>
+        :
+        <Button
+          color='teal'
+          size='big'
+          onClick={() => nextStep()}
+        >
+            Paso a paso
+        </Button>
       }
     </Segment>
   )
