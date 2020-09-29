@@ -319,7 +319,8 @@ const TuringMachine: React.FunctionComponent<IPops> = props => {
         </Grid.Row>
         
       </Grid>
-      <br/>
+      <br />
+      {(!state.error || !state.success) ?
       <Button
         color='teal'
         size='big'
@@ -327,6 +328,15 @@ const TuringMachine: React.FunctionComponent<IPops> = props => {
       >
           Paso a paso
       </Button>
+      :
+      <Button
+        color='teal'
+        size='big'
+        onClick={() => nextStep()}
+      >
+          Reiniciar
+      </Button>
+      }
     </Segment>
   )
 }
