@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Input, Segment, Header, Grid, Button, Message  } from 'semantic-ui-react';
 
 export interface IPops {}
@@ -20,6 +20,11 @@ const TuringMachine: React.FunctionComponent<IPops> = props => {
     error: false,
     success: false
   });
+  const [ ww, setWw ] = useState<number>(window.innerWidth);
+    
+  useEffect(()=>{
+    window.addEventListener("resize", () => setWw(typeof window !== "undefined" ? window.innerWidth : 0))
+  }, []);
   
   const onCargar = () => {
     setState({
@@ -171,161 +176,161 @@ const TuringMachine: React.FunctionComponent<IPops> = props => {
       />
       <br/>
       <Grid>
-        <Grid.Row style={{ marginLeft: '20%', marginTop: '20px' }} >
+        <Grid.Row style={{ marginLeft: ww < 700 ? '0%' : '20%', marginTop: '20px' }} >
           <br/>
-          <Grid.Column largeScreen={1} stretched >
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='#'
               value={state.arreglo ? state.arreglo[0] : '#'}
               color='green'
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched>
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='#'
               value={state.arreglo ? state.arreglo[1] : '#'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched>
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='#'
               value={state.arreglo ? state.arreglo[2] : '#'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched>
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='#'
               value={state.arreglo ? state.arreglo[3] : '#'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched>
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='#'
               value={state.arreglo ? state.arreglo[4] : '#'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched>
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='#'
               value={state.arreglo ? state.arreglo[5] : '#'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched>
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='#'
               value={state.arreglo ? state.arreglo[6] : '#'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched>
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='#'
               value={state.arreglo ? state.arreglo[7] : '#'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched>
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='#'
               value={state.arreglo ? state.arreglo[8] : '#'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched>
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='#'
               value={state.arreglo ? state.arreglo[9] : '#'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched>
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='#'
               value={state.arreglo ? state.arreglo[10] : '#'}
             />
           </Grid.Column>
         </Grid.Row>
-        <Grid.Row style={{ marginLeft: '20%', marginTop: '20px' }} >
+        <Grid.Row style={{ marginLeft: ww < 700 ? '0%' : '20%', marginTop: '20px' }} >
           <br/>
-          <Grid.Column largeScreen={1} stretched >
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='- -'
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched >
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='- -'
               value={state.apuntador === 1 ? '^' : '- -'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched >
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='- -'
               value={state.apuntador === 2 ? '^' : '- -'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched >
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='- -'
               value={state.apuntador === 3 ? '^' : '- -'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched >
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='- -'
               value={state.apuntador === 4 ? '^' : '- -'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched >
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='- -'
               value={state.apuntador === 5 ? '^' : '- -'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched >
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='- -'
               value={state.apuntador === 6 ? '^' : '- -'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched >
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='- -'
               value={state.apuntador === 7 ? '^' : '- -'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched >
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='- -'
               value={state.apuntador === 8 ? '^' : '- -'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched >
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='- -'
               value={state.apuntador === 9 ? '^' : '- -'}
             />
           </Grid.Column>
-          <Grid.Column largeScreen={1} stretched >
+          <Grid.Column style={{ marginRight: '5px'}}>
             <Input
-              style={{ weight: '10px'}}
+              style={{ width: '40px'}}
               placeholder='- -'
             />
           </Grid.Column>
