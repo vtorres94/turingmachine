@@ -170,7 +170,7 @@ const TuringMachine: React.FunctionComponent<IPops> = props => {
         onChange={
           event => setState({
             ...state,
-            cadena : state.cadena.length < 9 ? event.currentTarget.value.toUpperCase() : state.cadena
+            cadena : event.currentTarget.value.length < 9 ? event.currentTarget.value.toUpperCase() : state.cadena
           })
         }
       />
