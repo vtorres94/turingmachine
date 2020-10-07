@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Input, Segment, Header, Grid, Button, Message  } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import { Input, Segment, Header, Grid, Button, Message, Label  } from 'semantic-ui-react';
 
-export interface IPops {}
+export interface IPops {
+  ww: number
+}
 export interface ITutingMachineState {
   cadena: string;
   estado: number;
@@ -15,21 +17,16 @@ const TuringMachine: React.FunctionComponent<IPops> = props => {
   const [state, setState] = useState<ITutingMachineState>({
     cadena: '',
     estado: 0,
-    arreglo: [],
+    arreglo: ['#','#','#','#','#','#','#','#','#','#','#'],
     apuntador: 1,
     error: false,
     success: false
   });
-  const [ ww, setWw ] = useState<number>(window.innerWidth);
-    
-  useEffect(()=>{
-    window.addEventListener("resize", () => setWw(typeof window !== "undefined" ? window.innerWidth : 0))
-  }, []);
   
   const onCargar = () => {
     setState({
       ...state,
-      arreglo: ('#' + state.cadena + '#').split(''),
+      arreglo: ('#' + state.cadena + '#########').split(''),
       estado: 0,
       apuntador: 1,
       error: false,
@@ -125,7 +122,7 @@ const TuringMachine: React.FunctionComponent<IPops> = props => {
     setState({
       ...state,
       cadena: '',
-      arreglo: [],
+      arreglo: '###########'.split(''),
       estado: 0,
       apuntador: 1,
       error: false,
@@ -170,169 +167,194 @@ const TuringMachine: React.FunctionComponent<IPops> = props => {
         onChange={
           event => setState({
             ...state,
-            cadena : event.currentTarget.value.length < 9 ? event.currentTarget.value.toUpperCase() : state.cadena
+            cadena : event.currentTarget.value.length < 10 ? event.currentTarget.value.toUpperCase() : state.cadena
           })
         }
       />
       <br/>
       <Grid>
-        <Grid.Row style={{ marginLeft: ww < 700 ? '0%' : '20%', marginTop: '20px' }} >
+        <Grid.Row style={{ marginLeft: props.ww < 700 ? '0%' : '20%', marginTop: '20px' }} >
           <br/>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='#'
-              value={state.arreglo ? state.arreglo[0] : '#'}
-              color='green'
-            />
+            <Label
+              size='big'
+              color='teal'
+            >
+              {'#'}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='#'
-              value={state.arreglo ? state.arreglo[1] : '#'}
-            />
+            <Label
+              size='big'
+              color={state.error && state.arreglo[1] !== '#' ? 'red' : state.success && state.arreglo[1] !== '#' ? 'green' : 'teal'}
+            >
+              {state.arreglo[1]}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='#'
-              value={state.arreglo ? state.arreglo[2] : '#'}
-            />
+            <Label
+              size='big'
+              color={state.error && state.arreglo[2] !== '#' ? 'red' : state.success && state.arreglo[2] !== '#' ? 'green' : 'teal'}
+            >
+              {state.arreglo[2]}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='#'
-              value={state.arreglo ? state.arreglo[3] : '#'}
-            />
+            <Label
+              size='big'
+              color={state.error && state.arreglo[3] !== '#' ? 'red' : state.success && state.arreglo[3] !== '#' ? 'green' : 'teal'}
+            >
+              {state.arreglo[3]}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='#'
-              value={state.arreglo ? state.arreglo[4] : '#'}
-            />
+            <Label
+              size='big'
+              color={state.error && state.arreglo[4] !== '#' ? 'red' : state.success && state.arreglo[4] !== '#' ? 'green' : 'teal'}
+            >
+              {state.arreglo[4]}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='#'
-              value={state.arreglo ? state.arreglo[5] : '#'}
-            />
+            <Label
+              size='big'
+              color={state.error && state.arreglo[5] !== '#' ? 'red' : state.success && state.arreglo[5] !== '#' ? 'green' : 'teal'}
+            >
+              {state.arreglo[5]}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='#'
-              value={state.arreglo ? state.arreglo[6] : '#'}
-            />
+            <Label
+              size='big'
+              color={state.error && state.arreglo[6] !== '#' ? 'red' : state.success && state.arreglo[6] !== '#' ? 'green' : 'teal'}
+            >
+              {state.arreglo[6]}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='#'
-              value={state.arreglo ? state.arreglo[7] : '#'}
-            />
+            <Label
+              size='big'
+              color={state.error && state.arreglo[7] !== '#' ? 'red' : state.success && state.arreglo[7] !== '#' ? 'green' : 'teal'}
+            >
+              {state.arreglo[7]}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='#'
-              value={state.arreglo ? state.arreglo[8] : '#'}
-            />
+            <Label
+              size='big'
+              color={state.error && state.arreglo[8] !== '#' ? 'red' : state.success && state.arreglo[8] !== '#' ? 'green' : 'teal'}
+            >
+              {state.arreglo[8]}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='#'
-              value={state.arreglo ? state.arreglo[9] : '#'}
-            />
+            <Label
+              size='big'
+              color={state.error && state.arreglo[9] !== '#' ? 'red' : state.success && state.arreglo[9] !== '#' ? 'green' : 'teal'}
+            >
+              {state.arreglo[9]}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='#'
-              value={state.arreglo ? state.arreglo[10] : '#'}
-            />
+            <Label
+              size='big'
+              color='teal'
+            >
+              {'#'}
+            </Label>
           </Grid.Column>
         </Grid.Row>
-        <Grid.Row style={{ marginLeft: ww < 700 ? '0%' : '20%', marginTop: '20px' }} >
+        <Grid.Row style={{ marginLeft: props.ww < 700 ? '0%' : '20%', marginTop: '20px' }} >
           <br/>
-          <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='- -'
-            />
+          <Grid.Column style={{ marginRight: '5px' }}>
+            <Label
+              size='big'
+              color='teal'
+            >
+              {'-'}
+            </Label>
+            
+          </Grid.Column>
+          <Grid.Column style={{ marginRight: '5px' }}>
+            <Label
+              size='big'
+              color={state.apuntador === 1 ? 'green' : undefined}
+            >
+              {state.apuntador === 1 ? '^' : '-'}
+            </Label>
+            
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='- -'
-              value={state.apuntador === 1 ? '^' : '- -'}
-            />
+            <Label
+              size='big'
+              color={state.apuntador === 2 ? 'green' : undefined}
+            >
+              {state.apuntador === 2 ? '^' : '-'}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='- -'
-              value={state.apuntador === 2 ? '^' : '- -'}
-            />
+            <Label
+              size='big'
+              color={state.apuntador === 3 ? 'green' : undefined}
+            >
+              {state.apuntador === 3 ? '^' : '-'}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='- -'
-              value={state.apuntador === 3 ? '^' : '- -'}
-            />
+            <Label
+              size='big'
+              color={state.apuntador === 4 ? 'green' : undefined}
+            >
+              {state.apuntador === 4 ? '^' : '-'}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='- -'
-              value={state.apuntador === 4 ? '^' : '- -'}
-            />
+            <Label
+              size='big'
+              color={state.apuntador === 5 ? 'green' : undefined}
+            >
+              {state.apuntador === 5 ? '^' : '-'}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='- -'
-              value={state.apuntador === 5 ? '^' : '- -'}
-            />
+            <Label
+              size='big'
+              color={state.apuntador === 6 ? 'green' : undefined}
+            >
+              {state.apuntador === 6 ? '^' : '-'}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='- -'
-              value={state.apuntador === 6 ? '^' : '- -'}
-            />
+            <Label
+              size='big'
+              color={state.apuntador === 7 ? 'green' : undefined}
+            >
+              {state.apuntador === 7 ? '^' : '-'}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='- -'
-              value={state.apuntador === 7 ? '^' : '- -'}
-            />
+            <Label
+              size='big'
+              color={state.apuntador === 8 ? 'green' : undefined}
+            >
+              {state.apuntador === 8 ? '^' : '-'}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='- -'
-              value={state.apuntador === 8 ? '^' : '- -'}
-            />
+            <Label
+              size='big'
+              color={state.apuntador === 9 ? 'green' : undefined}
+            >
+              {state.apuntador === 9 ? '^' : '-'}
+            </Label>
           </Grid.Column>
           <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='- -'
-              value={state.apuntador === 9 ? '^' : '- -'}
-            />
-          </Grid.Column>
-          <Grid.Column style={{ marginRight: '5px'}}>
-            <Input
-              style={{ width: '40px'}}
-              placeholder='- -'
-            />
+            <Label
+              size='big'
+              color='teal'
+            >
+              {'-'}
+            </Label>
           </Grid.Column>
         </Grid.Row>
         
