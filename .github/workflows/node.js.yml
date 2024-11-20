@@ -43,4 +43,4 @@ jobs:
           cd gh-pages
           git add .
           git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
-          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/vtorres94/${{ github.repository }} gh-pages
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages
