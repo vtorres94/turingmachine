@@ -4,6 +4,7 @@ import { Input, Segment, Header, Grid, Button, Message, Label  } from 'semantic-
 export interface IPops {
   ww: number
 }
+
 export interface ITutingMachineState {
   cadena: string;
   estado: number;
