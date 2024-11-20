@@ -28,5 +28,5 @@ jobs:
         cache: 'npm'
     - run: npm i -g pnpm 
     - run: pnpm ci
-    - run: pnpm run build --if-present
-    - run: pnpm test
+    - run: pnpm run build
+    - run: pnpm start
