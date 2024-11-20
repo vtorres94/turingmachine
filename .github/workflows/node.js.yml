@@ -22,6 +22,8 @@ jobs:
         cache: 'npm'
         
     - name: Install pnpm
+    - run: corepack enable corepack prepare pnpm@latest --activate
+          
     - run: npm i -g pnpm 
     - run: pnpm i
     - run: pnpm run build
