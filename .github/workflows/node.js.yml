@@ -36,7 +36,7 @@ jobs:
         run: |
           git config --global user.name "Vladimir Torres"
           git config --global user.email "vladimir.tordavi@gmail.com"
-          git clone --branch=gh-pages https://github.com/turingmachine gh-pages
+          git clone --branch=gh-pages https://github.com/vtorres94/turingmachine gh-pages
           ls -a
           rm -rf gh-pages/*
           cp -r build/* gh-pages/
