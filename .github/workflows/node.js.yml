@@ -42,5 +42,5 @@ jobs:
           cp -r build/* gh-pages/
           cd gh-pages
           git add .
-          git commit -m "Deploy to GitHub Pages"
+          git commit -m "Deploy to GitHub Pages" || echo "No changes to commit"
           git push origin gh-pages
