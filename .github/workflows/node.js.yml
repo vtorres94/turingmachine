@@ -29,6 +29,9 @@ jobs:
       - name: Build the project
         run: pnpm run build
 
+      - name: LIST DIR
+        run: ls -a
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
