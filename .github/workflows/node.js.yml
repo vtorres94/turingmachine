@@ -11,24 +11,21 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: 18.x
-
+    
     steps:
     - uses: actions/checkout@v4
+    
     - name: Use Node.js 18.x
       uses: actions/setup-node@v4
       with:
-        node-version: 18.x
+        node-version: 18.20.5
         cache: 'npm'
         
+    - name: Install pnpm
     - run: npm i -g pnpm 
     - run: pnpm i
     - run: pnpm run build
 
-    # Paso 5: Deploy a GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
